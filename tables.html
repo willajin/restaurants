@@ -51,6 +51,20 @@
             }
             $("#res").html(result);
         })
+
+        $.get("/api/waitlist", function (data) {
+            console.log(data);
+            var result = "";
+            for (var i = 0; i < data.length; i++) {
+                if (data) {
+                    result += data[i].ID + "<br>";
+                    result += data[i].name + "<br>" ;
+                    result += data[i].email + "<br>";
+                    result += data[i].phone + "<br>";
+                }
+            }
+            $("#wait").html(result);
+        })
     </script>
 </body>
 

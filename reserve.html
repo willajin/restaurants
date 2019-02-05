@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+
+    <!-- Link jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Hot Restaurant</h1>
+        <p class="lead">Make your reservation</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="./home.html" role="button">Home</a>
+        <a class="btn btn-primary btn-lg" href="./tables.html" role="button">View Tables</a>
+    </div>
+
+    <div class="container">
+        <!-- table reservation -->
+        <h2 class="header">Table Reservation</h2>
+        <form role="form">
+            <!-- name -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Name</span>
+                </div>
+                <input type="text" class="form-control" placeholder="" aria-label="Name" aria-describedby="basic-addon1"
+                    id="name-input">
+            </div>
+
+            <!-- phone number -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Phone Number</span>
+                </div>
+                <input type="text" class="form-control" placeholder="" aria-label="phoneNumber"
+                    aria-describedby="basic-addon1" id="phone-input">
+            </div>
+
+            <!-- Email -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Email</span>
+                </div>
+                <input type="text" class="form-control" placeholder="" aria-label="Email" aria-describedby="basic-addon1"
+                    id="email-input">
+            </div>
+
+            <!-- Unique ID -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Unique ID</span>
+                </div>
+                <input type="text" class="form-control" placeholder="" aria-label="uniqueID" aria-describedby="basic-addon1"
+                    id="id-input">
+            </div>
+
+            <!-- submit button -->
+            <button type="submit" class="btn btn-primary" id="add-reserve">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

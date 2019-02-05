@@ -66,9 +66,27 @@
             </div>
 
             <!-- submit button -->
-            <button type="submit" class="btn btn-primary" id="add-reserve">Submit</button>
+            <button type="submit" class="btn btn-primary" id="reserve-btn">Submit</button>
         </form>
     </div>
+
+    <script type="text/javascript">
+        $("#reserve-btn").on("click", function(event) {
+          event.preventDefault();
+          var newreserve = {
+            name: $("#name-input").val().trim(),
+            phone: $("#phone-input").val().trim(),
+            email: $("#email-input").val().trim(),
+            ID: $("#id-input").val().trim()
+          };
+    
+          $.post("/api/characters", newreserve)
+            .then(function(data) {
+              console.log("reserve.html", data);
+              alert("Book reservation...");
+            });
+        });
+      </script>
 </body>
 
 </html>

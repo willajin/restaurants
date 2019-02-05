@@ -16,7 +16,7 @@ app.use(express.json());
 // ============================================================
 var tables = [
     {
-        ID: 123 ,
+        ID: 123,
         name: "Ynah",
         email: "ynah@test.com",
         phone: "123-456-7890"
@@ -56,8 +56,26 @@ app.get("/api/tables", function (req, res) {
     return res.json(tables);
 });
 //  user visits localhost:3000/api/tables they should see a JSON of waitlist data
-app.get("/api/tables", function (req, res) {
-    return res.json(tables);
+app.get("/api/waitlist", function (req, res) {
+    return res.json(waitlist);
+});
+
+
+// Create New Characters - takes in JSON input
+app.post("/api/characters", function (req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    var newcharacter = req.body;
+
+    // Using a RegEx Pattern to remove spaces from newCharacter
+    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+    newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+
+    console.log(newcharacter);
+
+    characters.push(newcharacter);
+
+    res.json(newcharacter);
 });
 
 // Starts the server to begin listening

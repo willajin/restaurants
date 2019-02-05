@@ -36,10 +36,9 @@ var waitlist = [
         phone: "123-456-7890"
     }
 ]
-// Create a set of routes that then display this data as JSONs. Users should be given these JSONs if they visit the appropriate page 
 // ROUTES
 // ============================================================
-// homepage
+
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
 });
@@ -62,7 +61,7 @@ app.get("/api/waitlist", function (req, res) {
 
 
 // Create New Reservations- takes in JSON input
-app.post("/api/characters", function (req, res) {
+app.post("/api/reserves", function (req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     var newreserve = req.body;

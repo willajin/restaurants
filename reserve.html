@@ -80,7 +80,7 @@
             ID: $("#id-input").val().trim()
           };
     
-          $.post("/api/characters", newreserve)
+          $.post("/api/reserves", newreserve)
             .then(function(data) {
               console.log("reserve.html", data);
               alert("Book reservation...");

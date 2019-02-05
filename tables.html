@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
         crossorigin="anonymous">
 
 </head>
+
 <body>
     <div class="jumbotron">
         <h1 class="display-4">Hot Restaurant</h1>
@@ -21,14 +23,32 @@
         <hr class="my-4">
         <a class="btn btn-primary btn-lg" href="/home" role="button">Home</a>
         <a class="btn btn-primary btn-lg" href="/reserve" role="button">Make Reservation</a>
-      </div>
-
-      <div class="container">
-          <h2>Current Reservations</h2>
-      </div>
-
-      <div class="container">
-        <h2>Waiting List</h2>
     </div>
+
+    <div class="container">
+        <h2>Current Reservations</h2>
+        <div id="res"></div>
+    </div>
+
+    <div class="container">
+        <h2>Waiting List</h2>
+        <div id="wait"></div>
+    </div>
+    <script>
+        $.get("/api/tables", function (data) {
+            console.log(data);
+            var result = "";
+            for (var i = 0; i < data.length; i++) {
+                if (data) {
+                    result += data[i].ID + "<br>";
+                    result += data[i].name + "<br>" ;
+                    result += data[i].email + "<br>";
+                    result += data[i].phone + "<br>";
+                }
+            }
+            $("#res").html(result);
+        })
+    </script>
 </body>
+
 </html>

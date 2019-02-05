@@ -48,7 +48,7 @@ app.get("/tables", function (req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
 });
 app.get("/reserve", function (req, res) {
-    res.sendFile(path.join(__dirname, "reserves.html"));
+    res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
 //  user visits localhost:3000/api/tables they should see a JSON of table data

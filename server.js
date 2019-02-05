@@ -12,7 +12,59 @@ var PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Create a set of variables (hint: arrays of objects) for holding the reservation and waitlist data
-// Create a set of routes that then display this data as JSONs. Users should be given these JSONs if they visit the appropriate page (i.e. if a user visits localhost:3000/api/tables they should see a JSON of table data).
-// Frontend Team:
-// Temporarily join the backend team. Your task will be to create Express routes that display your HTML pages when a user visits the appropriate page. (i.e. if a user visits localhost:3000/tables... they should be shown the table.html page.)
-// If you finish early begin creating the code necessary to convert your form data into JSON objects.
+// DATA
+// ============================================================
+var reservations = [
+    {
+        name = "Ynah",
+        seats = 2,
+        date = "2/4/19",
+        time = "19:00"
+    },
+    {
+        name = "Willa",
+        seats = 5,
+        date = "2/14/19",
+        time = "8:00"
+    }
+]
+var waitlist = [
+    {
+        name = "Ynah",
+        seats = 2,
+        date = "2/4/19",
+        time = "19:00"
+    },
+    {
+        name = "Willa",
+        seats = 5,
+        date = "2/14/19",
+        time = "8:00"
+    }
+]
+// Create a set of routes that then display this data as JSONs. Users should be given these JSONs if they visit the appropriate page 
+// ROUTES
+// ============================================================
+// homepage
+app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "home.html"));
+});
+
+app.get("/tables", function (req, res) {
+    res.sendFile(path.join(__dirname, "tables.html"));
+});
+app.get("/reserve", function (req, res) {
+    res.sendFile(path.join(__dirname, "reserves.html"));
+});
+
+//  user visits localhost:3000/api/tables they should see a JSON of table data
+app.get("/api/tables", function (req, res) {
+    return res.json(tables);
+});
+
+// Starts the server to begin listening
+// =============================================================
+app.listen(PORT, function() {
+    console.log("App listening on PORTS " + PORT);
+  });
+  

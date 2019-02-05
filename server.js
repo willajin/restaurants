@@ -14,32 +14,26 @@ app.use(express.json());
 // Create a set of variables (hint: arrays of objects) for holding the reservation and waitlist data
 // DATA
 // ============================================================
-var reservations = [
+var tables = [
     {
-        name = "Ynah",
-        seats = 2,
-        date = "2/4/19",
-        time = "19:00"
+        ID: 123 ,
+        name: "Ynah",
+        email: "ynah@test.com",
+        phone: "123-456-7890"
     },
     {
-        name = "Willa",
-        seats = 5,
-        date = "2/14/19",
-        time = "8:00"
+        ID: 456,
+        name: "Willa",
+        email: "willa@test.com",
+        phone: "123-456-7890"
     }
 ]
 var waitlist = [
     {
-        name = "Ynah",
-        seats = 2,
-        date = "2/4/19",
-        time = "19:00"
-    },
-    {
-        name = "Willa",
-        seats = 5,
-        date = "2/14/19",
-        time = "8:00"
+        ID: 789,
+        name: "Sammy",
+        email: "sammy@test.com",
+        phone: "123-456-7890"
     }
 ]
 // Create a set of routes that then display this data as JSONs. Users should be given these JSONs if they visit the appropriate page 
@@ -61,10 +55,13 @@ app.get("/reserve", function (req, res) {
 app.get("/api/tables", function (req, res) {
     return res.json(tables);
 });
+//  user visits localhost:3000/api/tables they should see a JSON of waitlist data
+app.get("/api/tables", function (req, res) {
+    return res.json(tables);
+});
 
 // Starts the server to begin listening
 // =============================================================
-app.listen(PORT, function() {
+app.listen(PORT, function () {
     console.log("App listening on PORTS " + PORT);
-  });
-  
+});

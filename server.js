@@ -61,21 +61,25 @@ app.get("/api/waitlist", function (req, res) {
 });
 
 
-// Create New Characters - takes in JSON input
+// Create New Reservations- takes in JSON input
 app.post("/api/characters", function (req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
-    var newcharacter = req.body;
+    var newreserve = req.body;
 
-    // Using a RegEx Pattern to remove spaces from newCharacter
-    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+    console.log(newreserve);
 
-    console.log(newcharacter);
-
-    characters.push(newcharacter);
-
-    res.json(newcharacter);
+    //check if table available (5 tables)
+    if (tables.length <= 5) {
+        //add reservation to tables
+        tables.push(newreserve);
+    }
+    else
+    {
+        //add to waitlist
+        waitlist.push(newreserve);
+    }
+    res.json(newreserve);
 });
 
 // Starts the server to begin listening
